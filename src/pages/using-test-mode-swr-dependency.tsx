@@ -7,8 +7,8 @@ export default function UsingTestModeSwrDependency() {
     const {isTestMode} = useTestMode();
     const {data, error, isLoading} = useSWR<ResponseData>(['/api/get-data', isTestMode], {fetcher: customFetcher});
 
-    if (error || !data) return <div>Failed to load</div>;
     if (isLoading) return <div>Loading...</div>;
+    if (error || !data) return <div>Failed to load</div>;
 
     return (
         <main>
